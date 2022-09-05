@@ -11,7 +11,8 @@ files = Dir.glob('files/*').select { |e| File.file? e }
 # heroes = heroes_model.all.map{ |hero| hero.split(' ')[0] }
 
 # provide manually
-heroes = ['Hero1', 'Hero2']
+heroes = []
+heroes = File.readlines('./words.txt').map { |line| line.sub("\n", '') }
 
 total_log = Logger.new if files.size > 1
 files.each do |file|
